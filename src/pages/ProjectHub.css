@@ -82,8 +82,10 @@
 }
 
 .hub__drag-hand {
-  font-size: 36px;
+  width: 36px;
+  height: 36px;
   display: block;
+  color: rgba(255, 255, 255, 0.85);
   animation: dragSwipe 1.4s ease-in-out infinite;
 }
 
