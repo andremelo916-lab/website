@@ -7,8 +7,15 @@ import './WorkProjects.css'
 export default function WorkProjects({ onOpenProject, onOpenHub, resetKey }) {
   const swapRef = useRef(null)
   const [frontIdx, setFrontIdx] = useState(0)
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth <= 768)
 
   useEffect(() => { setFrontIdx(0) }, [resetKey])
+
+  useEffect(() => {
+    const handler = () => setIsMobile(window.innerWidth <= 768)
+    window.addEventListener('resize', handler)
+    return () => window.removeEventListener('resize', handler)
+  }, [])
 
   const isSeeAll = frontIdx === workProjects.length
   const frontProject = isSeeAll ? null : workProjects[frontIdx]
@@ -76,10 +83,10 @@ export default function WorkProjects({ onOpenProject, onOpenHub, resetKey }) {
           <CardSwap
             key={resetKey}
             ref={swapRef}
-            width={580}
-            height={400}
-            cardDistance={55}
-            verticalDistance={45}
+            width={isMobile ? 300 : 580}
+            height={isMobile ? 260 : 400}
+            cardDistance={isMobile ? 22 : 55}
+            verticalDistance={isMobile ? 18 : 45}
             autoPlay={false}
             skewAmount={0}
             onFrontChange={setFrontIdx}

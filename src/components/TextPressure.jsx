@@ -49,15 +49,19 @@ const TextPressure = ({
   const [lineHeight, setLineHeight] = useState(1);
   const chars = text.split('');
 
+  const lastInteractionRef = useRef(0);
+
   useEffect(() => {
     const handleMouseMove = e => {
       cursorRef.current.x = e.clientX;
       cursorRef.current.y = e.clientY;
+      lastInteractionRef.current = Date.now();
     };
     const handleTouchMove = e => {
       const t = e.touches[0];
       cursorRef.current.x = t.clientX;
       cursorRef.current.y = t.clientY;
+      lastInteractionRef.current = Date.now();
     };
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('touchmove', handleTouchMove, { passive: true });
@@ -68,9 +72,26 @@ const TextPressure = ({
       cursorRef.current.x = mouseRef.current.x;
       cursorRef.current.y = mouseRef.current.y;
     }
+
+    // Idle animation — runs when no interaction for 1.5s
+    let idleRaf;
+    const idleLoop = () => {
+      if (Date.now() - lastInteractionRef.current > 1500 && containerRef.current) {
+        const rect = containerRef.current.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+        const t = Date.now() / 1000;
+        cursorRef.current.x = cx + Math.sin(t * 0.6) * rect.width * 0.42;
+        cursorRef.current.y = cy + Math.sin(t * 1.1) * rect.height * 1.2;
+      }
+      idleRaf = requestAnimationFrame(idleLoop);
+    };
+    idleRaf = requestAnimationFrame(idleLoop);
+
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('touchmove', handleTouchMove);
+      cancelAnimationFrame(idleRaf);
     };
   }, []);
 
