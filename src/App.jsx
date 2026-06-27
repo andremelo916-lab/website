@@ -66,8 +66,8 @@ export default function App() {
         scrollTrigger: {
           trigger: '.hero',
           start: 'top top',
-          end: '+=45%',
-          scrub: 0.7,
+          end: '+=20%',
+          scrub: 0.4,
           pin: true,
           pinSpacing: true,
         },
