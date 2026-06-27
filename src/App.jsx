@@ -18,11 +18,11 @@ import './App.css'
 gsap.registerPlugin(ScrollTrigger)
 
 export default function App() {
-  const [overlay, setOverlay] = useState(null) // null | { type: 'project', id } | { type: 'hub' }
+  const [overlay, setOverlay] = useState(null) // null | { type: 'project', id, fromHub } | { type: 'hub' }
   const [cardKey, setCardKey] = useState(0)
 
-  const openProject = (id) => {
-    setOverlay({ type: 'project', id })
+  const openProject = (id, fromHub = false) => {
+    setOverlay({ type: 'project', id, fromHub })
     document.body.style.overflow = 'hidden'
   }
   const openHub = () => {
@@ -110,10 +110,14 @@ export default function App() {
       </main>
 
       {overlay?.type === 'project' && activeProject && (
-        <ProjectPage project={activeProject} onBack={closeOverlay} onGoToHub={goToHub} />
+        <ProjectPage
+          project={activeProject}
+          onBack={overlay.fromHub ? goToHub : closeOverlay}
+          onBackToWebsite={overlay.fromHub ? closeOverlay : null}
+        />
       )}
       {overlay?.type === 'hub' && (
-        <ProjectHub onBack={closeOverlay} onOpenProject={openProject} />
+        <ProjectHub onBack={closeOverlay} onOpenProject={(id) => openProject(id, true)} />
       )}
     </>
   )

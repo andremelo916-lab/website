@@ -3,7 +3,7 @@ import GlassSurface from '../components/GlassSurface'
 import ShinyText from '../components/ShinyText'
 import './ProjectPage.css'
 
-export default function ProjectPage({ project, onBack, onGoToHub }) {
+export default function ProjectPage({ project, onBack, onBackToWebsite }) {
   useEffect(() => {
     window.scrollTo(0, 0)
     document.body.style.overflow = 'auto'
@@ -18,9 +18,16 @@ export default function ProjectPage({ project, onBack, onGoToHub }) {
         <div className="proj-page__nav-btns">
           <button className="proj-page__glass-btn" onClick={onBack}>
             <GlassSurface borderRadius={75}>
-              ← Back
+              ← Back to Hub
             </GlassSurface>
           </button>
+          {onBackToWebsite && (
+            <button className="proj-page__glass-btn" onClick={onBackToWebsite}>
+              <GlassSurface borderRadius={75}>
+                ← Back to Website
+              </GlassSurface>
+            </button>
+          )}
         </div>
       </header>
 
