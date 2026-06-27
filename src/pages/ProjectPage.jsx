@@ -18,12 +18,7 @@ export default function ProjectPage({ project, onBack, onGoToHub }) {
         <div className="proj-page__nav-btns">
           <button className="proj-page__glass-btn" onClick={onBack}>
             <GlassSurface borderRadius={75}>
-              ← Back to Website
-            </GlassSurface>
-          </button>
-          <button className="proj-page__glass-btn" onClick={onGoToHub}>
-            <GlassSurface borderRadius={75}>
-              Projects Hub →
+              ← Back
             </GlassSurface>
           </button>
         </div>
