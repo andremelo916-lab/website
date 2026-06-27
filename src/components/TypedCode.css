@@ -1,0 +1,172 @@
+.tc {
+  background: #0c0c0c;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 8px;
+  overflow: hidden;
+  font-family: 'Cascadia Code', 'Cascadia Mono', 'Consolas', 'Lucida Console', ui-monospace, monospace;
+  font-size: 12.5px;
+  line-height: 1.65;
+}
+
+/* ── Windows Terminal title bar ─────────────────────────────────────────── */
+.tc__titlebar {
+  background: #1a1a1a;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  height: 34px;
+  user-select: none;
+}
+
+/* Tab strip (left side) */
+.tc__tabstrip {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+}
+
+.tc__tab {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 12px 0 10px;
+  background: #0c0c0c;
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: none;
+  position: relative;
+}
+
+/* Active tab indicator at top */
+.tc__tab::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #7c83fd;
+}
+
+.tc__tab-icon {
+  font-size: 9px;
+  font-weight: 700;
+  background: #012456;
+  color: #ffffff;
+  padding: 2px 4px;
+  border-radius: 2px;
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+}
+
+.tc__tab-name {
+  font-size: 11.5px;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.tc__tab-x {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.35);
+  cursor: default;
+  padding: 2px 4px;
+  border-radius: 3px;
+  transition: background 0.1s, color 0.1s;
+}
+
+.tc__tab-x:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.tc__newtab,
+.tc__tabdrop {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 14px;
+  padding: 0 10px;
+  cursor: default;
+  align-self: center;
+  line-height: 1;
+  transition: color 0.1s;
+}
+
+.tc__newtab:hover,
+.tc__tabdrop:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Window controls (right side) */
+.tc__winctrl {
+  display: flex;
+  align-items: stretch;
+}
+
+.tc__wbtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: default;
+  transition: background 0.1s;
+}
+
+.tc__wbtn:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.tc__wbtn--close:hover {
+  background: #c42b1c;
+  color: #ffffff;
+}
+
+/* ── Terminal body ───────────────────────────────────────────────────────── */
+.tc__body {
+  margin: 0;
+  padding: 12px 16px 16px;
+  height: 440px;
+  overflow-y: auto;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+}
+
+.tc__body::-webkit-scrollbar        { width: 5px; height: 5px; }
+.tc__body::-webkit-scrollbar-track  { background: transparent; }
+.tc__body::-webkit-scrollbar-thumb  { background: rgba(255,255,255,0.15); border-radius: 3px; }
+
+.tc__body code {
+  display: block;
+  white-space: pre;
+}
+
+/* ── Syntax colours ──────────────────────────────────────────────────────── */
+.tc__gray    { color: #6a6a6a; }
+.tc__prompt  { color: #eaca7a; }          /* PS prompt — warm yellow */
+.tc__cont    { color: #eaca7a; }          /* >> continuation */
+.tc__var     { color: #9cdcfe; }          /* $variables — light blue */
+.tc__kw      { color: #569cd6; }          /* cmdlets — blue */
+.tc__str     { color: #ce9178; }          /* "strings" — warm orange */
+.tc__bracket { color: #d4d4d4; }
+.tc__flag    { color: #9cdcfe; }          /* -Flags */
+.tc__value   { color: #4ec9b0; }          /* Cyan/Green/Red values */
+.tc__prop    { color: #9cdcfe; }          /* property names in @{} */
+.tc__outkey  { color: #b4b4b4; }          /* Format-List keys */
+.tc__outval  { color: #d4d4d4; }          /* Format-List values */
+.tc__cyan    { color: #00e5c8; }          /* Write-Host cyan output */
+.tc__plain   { color: #d4d4d4; }
+
+/* ── Blinking block cursor ───────────────────────────────────────────────── */
+.tc__cursor {
+  display: inline-block;
+  color: #d4d4d4;
+  animation: tc-blink 1s step-end infinite;
+}
+
+@keyframes tc-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}

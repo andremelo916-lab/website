@@ -1,0 +1,61 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #080808;
+  --pad-x: clamp(1.5rem, 6vw, 5rem);
+  --pad-y: clamp(5rem, 10vw, 9rem);
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: var(--bg);
+  color: #ffffff;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Unified section heading — bold, same size across all sections */
+.section-heading {
+  font-size: clamp(44px, 7vw, 82px) !important;
+  font-weight: 700 !important;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  /* Scroll reveal initial state */
+  opacity: 0;
+  transform: translateY(52px);
+  transition: opacity 0.9s cubic-bezier(0.23, 1, 0.32, 1),
+              transform 0.9s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.section-heading--in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}

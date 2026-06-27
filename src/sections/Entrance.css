@@ -1,0 +1,64 @@
+.entrance {
+  position: relative;
+  height: 100svh;
+  overflow: hidden;
+  background: #080808;
+  will-change: opacity;
+}
+
+/* The image that zooms in — add entrance.jpg to /public */
+.entrance__bg {
+  position: absolute;
+  inset: -8%;           /* overshoot so edges stay hidden when scaled */
+  background-image: url('/entrance.jpg');
+  background-position: center 40%;  /* 40% from top: typical desk-in-landscape composition */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #0d0d10;        /* dark fallback if no image yet */
+  will-change: transform;
+  transform-origin: 50% 42%;        /* aim for center-screen: adjust if PC is off-center */
+}
+
+/* Edge darkening keeps zoom clean */
+.entrance__vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.55) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.entrance__content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* "Welcome" — light, cinematic, atmospheric (inspired by Mercury design) */
+.entrance__welcome {
+  font-size: clamp(40px, 7vw, 80px);
+  font-weight: 200;
+  color: rgba(237, 237, 243, 0.88);   /* Starlight from design */
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  text-align: center;
+  /* Fade in on load via CSS animation */
+  animation: entranceIn 1.6s cubic-bezier(0.23, 1, 0.32, 1) 0.4s both;
+}
+
+@keyframes entranceIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+    letter-spacing: 0.18em;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    letter-spacing: 0.28em;
+  }
+}

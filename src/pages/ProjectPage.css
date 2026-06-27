@@ -1,0 +1,121 @@
+.proj-page {
+  position: fixed;
+  inset: 0;
+  background: #080808;
+  z-index: 1000;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  animation: projPageIn 0.45s cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+@keyframes projPageIn {
+  from { opacity: 0; transform: translateY(32px) }
+  to   { opacity: 1; transform: translateY(0) }
+}
+
+.proj-page__header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px clamp(24px, 6vw, 80px);
+  background: rgba(8, 8, 8, 0.88);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.proj-page__nav-btns {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.proj-page__glass-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 11px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.proj-page__glass-btn .glass-surface {
+  width: auto !important;
+  height: auto !important;
+}
+
+.proj-page__glass-btn .glass-surface__content {
+  padding: 7px 16px;
+  white-space: nowrap;
+}
+
+.proj-page__glass-btn:hover .glass-surface {
+  filter: brightness(1.25);
+}
+
+.proj-page__hero {
+  padding: clamp(60px, 10vh, 120px) clamp(24px, 6vw, 80px) clamp(40px, 6vh, 80px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.proj-page__label {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.proj-page__title {
+  font-size: clamp(36px, 6vw, 80px);
+  font-weight: 300;
+  color: #ffffff;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  margin-bottom: 32px;
+}
+
+.proj-page__tags {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.proj-page__tag {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  padding: 4px 12px;
+  letter-spacing: 0.04em;
+}
+
+.proj-page__body {
+  padding: clamp(40px, 6vh, 80px) clamp(24px, 6vw, 80px);
+  max-width: 860px;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(40px, 6vh, 72px);
+}
+
+.proj-page__section-heading {
+  font-size: clamp(11px, 1.2vw, 13px);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.35);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.proj-page__text {
+  font-size: clamp(15px, 1.4vw, 17px);
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.8;
+  font-weight: 300;
+}

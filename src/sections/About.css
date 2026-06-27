@@ -1,0 +1,96 @@
+.about {
+  padding: var(--pad-y) var(--pad-x);
+  background: #080808;
+  position: relative;
+  overflow: hidden;
+}
+
+.about__dotfield {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.about__beams {
+  position: absolute;
+  top: 40%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.about__top {
+  position: relative;
+  z-index: 1;
+}
+
+.about__quote {
+  position: relative;
+  z-index: 1;
+}
+
+.about__top {
+  display: grid;
+  gap: 2rem;
+  margin-bottom: clamp(4rem, 8vw, 7rem);
+}
+
+.about__hey {
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 300;
+  color: #ffffff;
+  letter-spacing: 0;
+  line-height: 1.05;
+}
+
+.about__body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+}
+
+.about__intro {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-weight: 400;
+  line-height: 1.55;
+  color: #ffffff;
+}
+
+.about__scroll-hint {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.about__para {
+  font-size: 16px;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 400;
+}
+
+.about__quote {
+  border: none;
+  margin: 0;
+  padding: clamp(3rem, 6vw, 5rem) 0 0;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.about__quote-text {
+  font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+@media (max-width: 640px) {
+  .about__body {
+    grid-template-columns: 1fr;
+  }
+}

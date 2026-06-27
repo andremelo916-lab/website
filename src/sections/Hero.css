@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+.hero {
+  position: relative;
+  min-height: 100svh;
+  background: #080808;
+  display: flex;
+  flex-direction: column;
+  transform-origin: center top;
+  will-change: transform;
+}
+
+/* Aurora background layer */
+.hero__rays {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero__rays .aurora-container,
+.hero__rays .aurora-container canvas {
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(5rem, 10vw, 9rem) var(--pad-x) clamp(3rem, 6vw, 5rem);
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+/* Sparkles */
+.hero__sparkle {
+  position: absolute;
+  z-index: 5;
+  line-height: 0;
+}
+
+.hero__sparkle--left {
+  left: clamp(1.5rem, 6vw, 6rem);
+  top: 38%;
+}
+
+.hero__sparkle--right {
+  right: clamp(1.5rem, 6vw, 6rem);
+  top: 44%;
+}
+
+/* TextPressure container */
+.hero__portfolio-wrap {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: clamp(90px, 14vw, 210px);
+}
+
+/* André Melo label */
+.hero__name {
+  font-size: clamp(13px, 2vw, 20px);
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: -0.25rem;
+}
+
+/* Polaroid wrapper — overlaps bottom of PORTEFOLIO text */
+.hero__photo-area {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  margin-top: clamp(-50px, -6vw, -30px);
+}
+
+.hero__tilt-wrap {
+  position: relative;
+  flex-shrink: 0;
+  transform: rotate(-1.5deg);
+}
+
+/* Polaroid frame — inner div becomes the white card */
+.hero__tilt-wrap .tilted-card-inner {
+  width: 100% !important;
+  height: 100% !important;
+  background: #f5f2ed;
+  border-radius: 3px;
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    0 6px 18px rgba(0, 0, 0, 0.3),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.06);
+  box-sizing: border-box;
+  padding: 10px 10px 40px;
+}
+
+/* Handwritten label in the bottom Polaroid strip */
+.hero__tilt-wrap .tilted-card-inner::after {
+  content: 'André Melo';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 15px;
+  color: #1a1a1a;
+  letter-spacing: 0.01em;
+  pointer-events: none;
+}
+
+/* Photo inset inside the frame */
+.hero__tilt-wrap .tilted-card-img {
+  position: absolute !important;
+  top: 10px !important;
+  left: 10px !important;
+  right: 10px !important;
+  bottom: 40px !important;
+  width: calc(100% - 20px) !important;
+  height: calc(100% - 50px) !important;
+  border-radius: 1px;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* Subtitle */
+.hero__subtitle {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+}
+
+@media (max-width: 480px) {
+  .hero__portfolio-wrap {
+    height: clamp(52px, 13vw, 80px);
+  }
+  .hero__sparkle {
+    display: none;
+  }
+}

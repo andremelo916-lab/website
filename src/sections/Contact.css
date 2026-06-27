@@ -1,0 +1,85 @@
+.contact {
+  position: relative;
+  padding: var(--pad-y) var(--pad-x);
+  background: transparent;
+}
+
+.contact__heading {
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 300;
+  color: #ffffff;
+  letter-spacing: 0;
+  line-height: 1;
+  margin-bottom: 0.75rem;
+}
+
+.contact__sub {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 400;
+  margin-bottom: 2.5rem;
+  line-height: 1.5;
+}
+
+.contact__socials {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Social link anchor */
+.contact__social-link {
+  display: inline-flex;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+/* GlassSurface override */
+.contact__glass-btn.glass-surface {
+  width: auto !important;
+  height: auto !important;
+}
+
+.contact__glass-btn .glass-surface__content {
+  padding: 10px 20px;
+}
+
+/* Button inner layout: icon + label */
+.contact__btn-inner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.contact__btn-inner svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+.contact__social-link:hover .contact__glass-btn {
+  filter: brightness(1.25);
+}
+
+/* Footer */
+.footer {
+  background: #111111;
+  overflow: hidden;
+  padding: clamp(2rem, 5vw, 4rem) var(--pad-x);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer__watermark {
+  font-size: clamp(52px, 14vw, 190px);
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.06);
+  letter-spacing: 0;
+  line-height: 1;
+  user-select: none;
+  white-space: nowrap;
+}

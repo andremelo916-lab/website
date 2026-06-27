@@ -1,0 +1,86 @@
+.pp {
+  position: relative;
+  padding: var(--pad-y) var(--pad-x);
+}
+
+.pp__header {
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+
+.pp__heading {
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 300;
+  color: #ffffff;
+  line-height: 1.1;
+}
+
+.pp__sub {
+  margin-top: 0.75rem;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.4);
+  line-height: 1.6;
+}
+
+/* Horizontally scrollable card row */
+.pp__scroll {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 16px;
+  scroll-behavior: smooth;
+  /* Custom scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.25) rgba(255, 255, 255, 0.05);
+}
+
+.pp__scroll::-webkit-scrollbar {
+  height: 3px;
+}
+
+.pp__scroll::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 2px;
+}
+
+.pp__scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 2px;
+}
+
+.pp__card {
+  flex-shrink: 0;
+  width: clamp(280px, 38vw, 480px);
+  border-radius: 14px;
+  overflow: hidden;
+  position: relative;
+  background: #111111;
+}
+
+.pp__card-img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.pp__card:hover .pp__card-img {
+  transform: scale(1.04);
+}
+
+.pp__card-info {
+  padding: 16px 20px 20px;
+}
+
+.pp__card-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.pp__card-sub {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.45);
+}

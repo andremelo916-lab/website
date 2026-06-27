@@ -1,0 +1,59 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px var(--pad-x);
+  pointer-events: none;
+}
+
+.nav__logo {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  pointer-events: auto;
+  cursor: default;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.nav__links {
+  display: flex;
+  gap: 6px;
+  list-style: none;
+}
+
+.nav__link {
+  display: inline-flex;
+  pointer-events: auto;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 11px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  text-decoration: none;
+}
+
+/* Override GlassSurface default inline dimensions */
+.nav__glass-btn.glass-surface {
+  width: auto !important;
+  height: auto !important;
+}
+
+.nav__glass-btn .glass-surface__content {
+  padding: 7px 15px;
+  white-space: nowrap;
+}
+
+.nav__link:hover .nav__glass-btn {
+  filter: brightness(1.25);
+}
+
+@media (max-width: 560px) {
+  .nav__links {
+    display: none;
+  }
+}
