@@ -8,18 +8,6 @@ const SEGMENTS = [
   S('gray',   'Windows PowerShell\n'),
   S('gray',   'Copyright (C) Microsoft Corporation. All rights reserved.\n\n'),
 
-  // ── $profile definition ──────────────────────────────────────
-  S('prompt', 'PS C:\\Portfolio\\André> '),
-  S('var',    '$profile'),
-  S('plain',  ' = '),
-  S('bracket','['),
-  S('kw',     'PSCustomObject'),
-  S('bracket',']@{\n'),
-  S('cont',   '>>   '), S('prop', 'Name       '), S('plain', '= '), S('str', '"André Melo"\n'),
-  S('cont',   '>>   '), S('prop', 'Role       '), S('plain', '= '), S('str', '"Data Scientist"\n'),
-  S('cont',   '>>   '), S('prop', 'Background '), S('plain', '= '), S('str', '"Process Engineering"\n'),
-  S('cont',   '>> '), S('bracket', '}\n\n'),
-
   // ── $about here-string ───────────────────────────────────────
   S('prompt', 'PS C:\\Portfolio\\André> '),
   S('var',    '$about'),
