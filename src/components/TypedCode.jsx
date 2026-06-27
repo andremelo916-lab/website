@@ -29,7 +29,7 @@ const SEGMENTS = [
   S('cont',   '>> '), S('outval', 'done, tackling challenges with a problem-solving mindset\n'),
   S('cont',   '>> '), S('outval', 'and a drive for progress.\n'),
 
-  S('str',    '"@\n\n'),
+  S('str',    '"@\n'),
 
   S('prompt', 'PS C:\\Portfolio\\André> '),
 ]
