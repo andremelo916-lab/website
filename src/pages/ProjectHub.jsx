@@ -46,10 +46,8 @@ export default function ProjectHub({ onBack, onOpenProject }) {
         {showDragHint && (
           <div className="hub__drag-hint">
             <svg className="hub__drag-hand" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M9 11V6a1.5 1.5 0 0 1 3 0v5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M12 11V5a1.5 1.5 0 0 1 3 0v6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M15 11V8a1.5 1.5 0 0 1 3 0v5c0 3.314-2.686 6-6 6H9a6 6 0 0 1-6-6v-1a1.5 1.5 0 0 1 3 0" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M9 11a1.5 1.5 0 0 0-3 0v1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M9 12V6a2 2 0 1 1 4 0v6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M13 10v-1.5a2 2 0 1 1 4 0V13a6 6 0 0 1-6 6H9A6 6 0 0 1 3 13v-1a2 2 0 1 1 4 0v0" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </div>
         )}
