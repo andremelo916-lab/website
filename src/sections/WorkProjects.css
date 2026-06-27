@@ -323,4 +323,10 @@
   .wp__arrow {
     right: -16px;
   }
+
+  .wp__swap-wrap .card-swap-container {
+    right: 50% !important;
+    bottom: 50% !important;
+    transform: translate(50%, 50%) !important;
+  }
 }
