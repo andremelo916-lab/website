@@ -39,8 +39,8 @@ export default function Thoughts() {
           bend={3}
           textColor="#ffffff"
           borderRadius={0.05}
-          scrollEase={0.02}
-          scrollSpeed={2}
+          scrollEase={0.04}
+          scrollSpeed={5}
           font="bold 18px Inter"
         />
       </div>

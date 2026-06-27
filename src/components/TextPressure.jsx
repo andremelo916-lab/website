@@ -81,8 +81,8 @@ const TextPressure = ({
         const cx = rect.left + rect.width / 2;
         const cy = rect.top + rect.height / 2;
         const t = Date.now() / 1000;
-        cursorRef.current.x = cx + Math.sin(t * 0.6) * rect.width * 0.42;
-        cursorRef.current.y = cy + Math.sin(t * 1.1) * rect.height * 1.2;
+        cursorRef.current.x = cx + Math.sin(t * 1.2) * rect.width * 0.42;
+        cursorRef.current.y = cy + Math.sin(t * 2.0) * rect.height * 1.2;
       }
       idleRaf = requestAnimationFrame(idleLoop);
     };

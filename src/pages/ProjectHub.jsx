@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import InfiniteMenu from '../components/InfiniteMenu'
 import ShinyText from '../components/ShinyText'
 import { workProjects } from '../data/workProjects'
@@ -12,10 +12,15 @@ const hubItems = workProjects.map((p) => ({
 }))
 
 export default function ProjectHub({ onBack, onOpenProject }) {
+  const [showDragHint, setShowDragHint] = useState(true)
+  const isMobile = useRef(window.innerWidth <= 768).current
+
   useEffect(() => {
     document.body.style.overflow = 'hidden'
     return () => { document.body.style.overflow = '' }
   }, [])
+
+  const hideDragHint = () => setShowDragHint(false)
 
   return (
     <div className="hub">
@@ -32,12 +37,17 @@ export default function ProjectHub({ onBack, onOpenProject }) {
         </span>
       </header>
 
-      <div className="hub__canvas-area">
+      <div className="hub__canvas-area" onPointerDown={hideDragHint}>
         <InfiniteMenu
           items={hubItems}
-          scale={1.0}
+          scale={isMobile ? 0.6 : 1.0}
           onItemClick={idx => onOpenProject?.(workProjects[idx]?.id)}
         />
+        {showDragHint && (
+          <div className="hub__drag-hint">
+            <span className="hub__drag-hand">👆</span>
+          </div>
+        )}
       </div>
     </div>
   )
