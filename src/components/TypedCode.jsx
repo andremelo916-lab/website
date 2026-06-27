@@ -43,17 +43,6 @@ const SEGMENTS = [
 
   S('str',    '"@\n\n'),
 
-  // ── Final line ───────────────────────────────────────────────
-  S('prompt', 'PS C:\\Portfolio\\André> '),
-  S('kw',     'Write-Host'),
-  S('plain',  ' '),
-  S('str',    '"Always improving."'),
-  S('plain',  ' '),
-  S('flag',   '-ForegroundColor'),
-  S('plain',  ' '),
-  S('value',  'Cyan\n'),
-  S('cyan',   'Always improving.\n\n'),
-
   S('prompt', 'PS C:\\Portfolio\\André> '),
 ]
 
